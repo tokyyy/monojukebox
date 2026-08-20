@@ -7,6 +7,7 @@ import net.minecraft.client.sounds.ChannelAccess;
 import net.minecraft.client.sounds.SoundEngine;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.phys.Vec3;
+import net.t0ky.monojukebox.JukeboxConfig;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -41,11 +42,9 @@ public abstract class SoundEngineMixin {
                 double distance = cameraPos.distanceTo(realPos);
 
                 if (distance > 0.001) {
-                    // Project position directly ahead along camera vector
                     Vec3 monoPos = cameraPos.add(lookVec.scale(distance));
-                    Vec3 targetPos = realPos.lerp(monoPos, 0.0);
+                    Vec3 targetPos = realPos.lerp(monoPos, JukeboxConfig.blendFactor);
 
-                    // Update OpenAL source position
                     channelHandle.execute(source -> source.setSelfPosition(targetPos));
                 }
             }

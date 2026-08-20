@@ -8,10 +8,10 @@
 		"toky"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/mono-jukebox",
+		"sources": "https://github.com/tokyyy/monojukebox"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/monojukebox/icon.png",
 	"environment": "*",
 	"entrypoints": {
